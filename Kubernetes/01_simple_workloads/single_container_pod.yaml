@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: single-container-pod 
+spec:
+  containers:
+    - name: main-container 
+      image: nginx:1.29.0 
+      ports:
+        - containerPort: 80
