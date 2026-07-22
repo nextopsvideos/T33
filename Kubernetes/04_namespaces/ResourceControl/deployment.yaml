@@ -6,7 +6,7 @@ metadata:
     app: nginx
   namespace: dev-team
 spec:
-  replicas: 10       # 20 replicas will not be scheduled, because there is limit of 10 pods in this namespace
+  replicas: 20       # 20 replicas will not be scheduled, because there is limit of 10 pods in this namespace
   selector:
     matchLabels:
       app: nginx
@@ -22,9 +22,9 @@ spec:
           ports:
             - containerPort: 80
           resources:
-            requests:
-              cpu: "50m"
-              memory: "50Mi"
+            requests: 
+              cpu: "50m"        # it is not obeying the limit range rule
+              memory: "50Mi"    # it is not obeying the limit range rule
             limits:
               cpu: "100m"
               memory: "100Mi"

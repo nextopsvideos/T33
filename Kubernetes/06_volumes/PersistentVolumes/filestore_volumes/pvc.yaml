@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: dyn-fs-vol-claim 
+spec:
+  storageClassName: custom-fs-sc
+  accessModes: 
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Ti

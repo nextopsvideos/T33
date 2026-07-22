@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service           #HEADLESS
+metadata:
+  name: mysql-hl-svc
+  labels:
+    app: mysql 
+spec:
+  selector:
+    app: mysql
+  ports:
+  - port: 3306
+    targetPort: 3306
+    protocol: TCP
+  clusterIP: None
+
+
+# FQDN - Fully Qualified Domain Name
+# headlessservicename.namespacename.svc.cluster.local                           service fqdn
+# mysql-hl-svc.default.svc.cluster.local                                        our example
+# statefulsetname.headlessservicename.namespacename.svc.cluster.local           sts fqdn
+# mysql.mysql-hl-svc.default.svc.cluster.local                                  our example
+# podname.statefulsetname.headlessservicename.namespacename.svc.cluster.local   pod fqdn
+# mysql-0.mysql.mysql-hl-svc.default.svc.cluster.local                          our example replica 1
+# mysql-1.mysql.mysql-hl-svc.default.svc.cluster.local                          our example replica 2
+# mysql-2.mysql.mysql-hl-svc.default.svc.cluster.local                          our example replica 3
+# mysql-3.mysql.mysql-hl-svc.default.svc.cluster.local                          our example replica 4
